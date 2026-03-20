@@ -27,20 +27,20 @@ if st.button('Get fare estimate'):
             'passenger_count': int(passenger_count)
         }
 
-        try:
-            st.write("Envoi de la requête vers :", service_url)
-            r = requests.get(service_url, params=params, timeout=5)
-            response = r.json()
-            #st.write("Réponse reçue, status :", r.status_code)
-            #st.write("Réponse brute :", r.text)
-            st.markdown(f"### Expected fare is: {round(response['fare'], 2)}")
+ #       try:
+        st.write("Envoi de la requête vers :", service_url)
+        r = requests.get(service_url, params=params, timeout=5)
+        response = r.json()
+        #st.write("Réponse reçue, status :", r.status_code)
+        #st.write("Réponse brute :", r.text)
+        st.markdown(f"### Expected fare is: {round(response['fare'], 2)}")
 
-        except requests.exceptions.Timeout:
-            st.error("⏱️ Timeout : aucune réponse après 5s")
-        except requests.exceptions.ConnectionError as e:
-            st.error(f"🔌 Erreur de connexion : {e}")
-        except Exception as e:
-            st.error(f"❌ Erreur : {type(e).__name__} — {e}")
+#        except requests.exceptions.Timeout:
+#            st.error("⏱️ Timeout : aucune réponse après 5s")
+#        except requests.exceptions.ConnectionError as e:
+#            st.error(f"🔌 Erreur de connexion : {e}")
+#        except Exception as e:
+#            st.error(f"❌ Erreur : {type(e).__name__} — {e}")
 
 
 
