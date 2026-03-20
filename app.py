@@ -27,6 +27,13 @@ if st.button('Get fare estimate'):
             'passenger_count': int(passenger_count)
         }
 
+        points = {'lat': [float(pickup_latitude), float(dropoff_latitude)],
+                  'lon': [float(pickup_longitude), float(dropoff_longitude)]
+
+        }
+
+        st.map(points)
+
  #       try:
         st.write("Envoi de la requête vers :", service_url)
         r = requests.get(service_url, params=params, timeout=5)
